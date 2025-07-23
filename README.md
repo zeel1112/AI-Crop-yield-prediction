@@ -1,128 +1,140 @@
-🌾 Crop Yield Prediction Using Machine Learning
+# 🌾 Crop Yield Prediction Using Machine Learning
+
 This project explores multiple machine learning models to accurately predict crop yields using global agricultural and environmental datasets. The aim is to assist farmers and policymakers in making informed decisions based on data-driven insights.
 
-📌 Problem Statement
+---
+
+## 📌 Problem Statement
+
 Predicting crop production is complex due to high-dimensional, nonlinear relationships among variables like temperature, rainfall, and pesticide use. Traditional statistical models fail to handle such complexity. This project investigates whether machine learning models can effectively predict crop yields using these features.
 
-🎯 Objectives
-Build and compare four machine learning models:
+---
 
-Ridge Regression
+## 🎯 Objectives
 
-Decision Tree Regressor
+- Build and compare four machine learning models:
+  - **Ridge Regression**
+  - **Decision Tree Regressor**
+  - **Feedforward Neural Network (FFNN)**
+  - **PCA + Random Forest**
+- Identify the best-performing model for accurate crop yield prediction.
+- Provide practical insights for better agricultural planning.
 
-Feedforward Neural Network (FFNN)
+---
 
-PCA + Random Forest
+## 📚 Dataset
 
-Identify the best-performing model for accurate crop yield prediction.
+**Data Sources:**
+- 🌐 World Bank
+- 🌾 Food and Agriculture Organization (FAO)
 
-Provide practical insights for better agricultural planning.
+**Countries Covered:** 101  
+**Time Span:** 1990 to 2013
 
-📚 Dataset
-Data is sourced from:
+**Features Used:**
+- `Crop Yield (hg/ha)`
+- `Rainfall (mm)`
+- `Pesticides (tonnes)`
+- `Temperature (°C)`
 
-World Bank
+---
 
-Food and Agriculture Organization (FAO)
+## 🛠️ Tools & Libraries
 
-Covers data from 101 countries between 1990 to 2013.
+| Task                      | Tools / Libraries Used                       |
+|---------------------------|---------------------------------------------|
+| Data Handling             | `Pandas`, `NumPy`                           |
+| Visualization             | `Matplotlib`, `Seaborn`                     |
+| Preprocessing             | `StandardScaler`, `OneHotEncoder`          |
+| Dimensionality Reduction  | `PCA` from `sklearn.decomposition`         |
+| Model Training            | `sklearn`, `TensorFlow`, `Keras`           |
+| Evaluation Metrics        | `MSE`, `MAE`, `R²`, `Accuracy`             |
+| Hyperparameter Tuning     | `GridSearchCV`                             |
 
-Features Used:
+---
 
-Crop Yield (hg/ha)
+## 🧪 Models Implemented
 
-Rainfall (mm)
-
-Pesticides (tonnes)
-
-Temperature (°C)
-
-🛠️ Tools & Libraries
-Task	Tools / Libraries Used
-Data Handling	Pandas, NumPy
-Visualization	Matplotlib, Seaborn
-Preprocessing	StandardScaler, OneHotEncoder
-Dimensionality Reduction	PCA from sklearn.decomposition
-Model Training	sklearn, TensorFlow, Keras
-Evaluation Metrics	MSE, MAE, R², Accuracy
-Hyperparameter Tuning	GridSearchCV
-
-🧪 Models Implemented
-Ridge Regression
+### 1. Ridge Regression
 Linear model with L2 regularization to reduce overfitting.
 
-Decision Tree Regressor
+### 2. Decision Tree Regressor
 Captures non-linear relationships using tree splits based on features like rainfall and pesticides.
 
-Feedforward Neural Network (FFNN)
-Deep learning model capable of learning complex patterns using ReLU activation and Adam optimizer.
+### 3. Feedforward Neural Network (FFNN)
+Deep learning model using:
+- Activation: ReLU  
+- Optimizer: Adam  
+- Split: 60% Train / 20% Validation / 20% Test
 
-PCA + Random Forest
-Uses Principal Component Analysis to reduce dimensionality before applying Random Forest for robust predictions.
+### 4. PCA + Random Forest
+Uses PCA for dimensionality reduction, followed by Random Forest for robust predictions.
 
-📊 Model Performance
-Model	MSE	MAE	R²	Accuracy (%)
-Ridge Regression	523.25	18.36	0.84	92.15%
-PCA + Random Forest	452.14	15.92	0.89	93.87%
-Decision Tree Regressor	562.31	20.12	0.81	90.73%
-Feedforward Neural Net	482.67	16.43	0.87	93.21%
+---
 
-✅ Best Model: PCA + Random Forest
+## 📊 Model Performance
 
-📈 Visualizations
-Correlation Heatmap
+| Model                   | MSE    | MAE    | R²     | Accuracy (%) |
+|------------------------|--------|--------|--------|--------------|
+| Ridge Regression       | 523.25 | 18.36  | 0.84   | 92.15%       |
+| PCA + Random Forest    | 452.14 | 15.92  | 0.89   | **93.87%**   |
+| Decision Tree Regressor| 562.31 | 20.12  | 0.81   | 90.73%       |
+| Feedforward Neural Net | 482.67 | 16.43  | 0.87   | 93.21%       |
 
-Actual vs Predicted Density Plots
+✅ **Best Model**: PCA + Random Forest
 
-Feature Importance Rankings
+---
 
-Evaluation Metric Comparisons
+## 📈 Visualizations
 
-💡 Key Insights
-PCA + Random Forest outperforms all models due to its ability to handle high-dimensional data effectively.
+- 🔥 Correlation Heatmap
+- 📉 Actual vs Predicted Density Plots
+- 🧠 Feature Importance Rankings
+- 📊 Evaluation Metric Bar Charts
 
-FFNN is also strong, highlighting the power of deep learning for nonlinear problems.
+---
 
-Rainfall, temperature, and pesticide use are the top influential features.
+## 💡 Key Insights
 
-Potatoes and India show high predictive importance in crop yield modeling.
+- **Rainfall**, **temperature**, and **pesticide use** are key predictive features.
+- **Potatoes** and **India** are highly influential in yield prediction.
+- PCA+Random Forest shows best accuracy due to robust handling of high-dimensional data.
+- FFNN is effective for non-linear relationships, proving deep learning’s potential in agriculture.
 
-⚠️ Limitations
-Absence of key variables like soil quality and irrigation data may affect prediction accuracy.
+---
 
-Ridge Regression underperformed due to its linear assumptions.
+## ⚠️ Limitations
 
-🔧 Project Structure
-bash
-Copy
-Edit
-├── modelbuilding.ipynb        # Main Jupyter Notebook with all steps
-├── yield_df.csv               # Final merged dataset (1990–2013)
-├── README.md                  # Project documentation
-└── figures/                   # Generated plots and visualizations
-🚀 Getting Started
-Clone this repo:
+- Lack of **soil** and **irrigation** data may limit prediction accuracy.
+- **Ridge Regression** struggles with non-linearity.
+- Advanced regularization or ensemble techniques offer better performance for complex datasets.
 
-bash
-Copy
-Edit
-git clone https://github.com/yourusername/crop-yield-prediction.git
-cd crop-yield-prediction
-Install requirements:
+---
 
-bash
-Copy
-Edit
-pip install -r requirements.txt
-Run the Jupyter Notebook:
+## 🔧 Project Structure
 
-bash
-Copy
-Edit
-jupyter notebook modelbuilding.ipynb
-📩 Contact
-For questions or collaboration:
+├── modelbuilding.ipynb # Main Jupyter Notebook with all steps
+├── yield_df.csv # Final merged dataset (1990–2013)
+├── README.md # Project documentation
+└── figures/ # Generated plots and visualizations
+
+
+---
+
+## 🚀 Getting Started
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/yourusername/crop-yield-prediction.git
+   cd crop-yield-prediction
+2. **Install Dependencies**
+   ```bash
+   pip install -r requirements.txt
+
+3. ** Run the Notebook**
+   ```bash
+   jupyter notebook modelbuilding.ipynb
+
+##📩 Contact
 Zeel Patel
-📧 zeel2002patel@gmail.com
-🔗 LinkedIn
+📧 zeelpatel1539@gmail.com
