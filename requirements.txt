@@ -1,0 +1,16 @@
+# Core Libraries
+numpy==1.24.4
+pandas==1.5.3
+
+# Data Visualization
+matplotlib==3.7.1
+seaborn==0.12.2
+
+# Scikit-learn (ML Models & Preprocessing)
+scikit-learn==1.2.2
+
+# TensorFlow (For Feedforward Neural Network)
+tensorflow==2.12.0
+
+# Jupyter (Optional, for running .ipynb file)
+jupyterlab==3.6.3
